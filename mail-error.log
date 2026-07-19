@@ -1,0 +1,11 @@
+[2026-03-17 13:20:40] SMTP Error: data not accepted. SMTP server error: DATA END command failed Detail: spam message rejected. Please visit https://help.mail.ru/notspam-support/id?c=h3f6WltkZZzfTaJobSEP-rp0AZAHgn6h6wh351odki8vAAAAPokBAMK1PxU~ or  report details to abuse@corp.mail.ru. Error code: 5AFA77879C65645B68A24DDFFA0F216D900174BAA17E8207E77708EB2F921D5A. ID: 0000002F0001893E153FB5C2.
+ SMTP code: 550
+[2026-04-07 19:16:50] SMTP Error: data not accepted. SMTP server error: DATA END command failed Detail: spam message rejected. Please visit https://help.mail.ru/notspam-support/id?c=sKsrVe8or3ee4J1bI9yWXaFTp_cGN_2f5ZFHMRXV7SoYAAAAgOwBADsH_is~ or  report details to abuse@corp.mail.ru. Error code: 552BABB077AF28EF5B9DE09E5D96DC23F7A753A19FFD3706314791E52AEDD515. ID: 000000180001EC802BFE073B.
+ SMTP code: 550
+[2026-04-13 06:44:01] Invalid address:  (Reply-To): mickeyquesy@bk.ru:50xa5mmm4
+[2026-04-17 04:31:36] Invalid address:  (Reply-To): mickeyquesy@bk.ru:50xa5mmm4
+[2026-05-26 14:57:58] SMTP Error: data not accepted. SMTP server error: DATA END command failed Detail: spam message rejected. Please visit https://help.mail.ru/notspam-support/id?c=r2-TTvdM1NwWPahU51nCnEa7tiJ7wVJ447enJnn83zoSxSEqxcX-WC0AAAAQjQEAaUL0Gw~~ or  report details to abuse@corp.mail.ru. Error code: 4E936FAFDCD44CF754A83D169CC259E722B6BB467852C17B26A7B7E33ADFFC792A21C51258FEC5C5. ID: 0000002D00018D101BF44269.
+ SMTP code: 550
+[2026-07-12 16:39:16] SMTP Error: data not accepted. SMTP server error: DATA END command failed Detail: spam message rejected. Please visit https://help.mail.ru/notspam-support/id?c=ksuEDl4WIuJsfjyTyK5JPbSk9qgXyRFh4917BlFwlBliycaifuYBEhIAAAAI-gEAeB57MA~~ or  report details to abuse@corp.mail.ru. Error code: 0E84CB92E222165E933C7E6C3D49AEC8A8F6A4B46111C917067BDDE319947051A2C6C9621201E67E. ID: 000000120001FA08307B1E78.
+ SMTP code: 550
+[2026-07-16 21:48:21] Invalid address:  (Reply-To): jfdkfj@njd
