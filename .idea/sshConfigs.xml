@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="olemesheva.testeso7.beget.tech" id="4b3da959-0f38-4886-bc41-0e245b5c9360" port="22" nameFormat="DESCRIPTIVE" username="testeso7_olemdev" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

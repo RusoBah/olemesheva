@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="15ab0662-6552-44cc-b02b-03d17807f82a" name="dev">
+        <fileTransfer rootFolder="/home/t/testeso7/olemesheva.testeso7.beget.tech/public_html" accessType="SFTP" host="olemesheva.testeso7.beget.tech" port="22" sshConfigId="4b3da959-0f38-4886-bc41-0e245b5c9360" sshConfig="testeso7_olemdev@olemesheva.testeso7.beget.tech:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
