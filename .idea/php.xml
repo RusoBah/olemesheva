@@ -13,8 +13,54 @@
   <component name="PhpCodeSniffer">
     <phpcs_settings>
       <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="9a11a3c0-c738-44f6-8f97-23f3dbe559e8" timeout="30000" />
+      <PhpCSConfiguration beautifier_path="$PROJECT_DIR$/PHPMailer/vendor/bin/phpcbf" tool_path="$PROJECT_DIR$/PHPMailer/vendor/bin/phpcs" />
     </phpcs_settings>
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/theseer/tokenizer" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/php-parallel-lint/php-parallel-lint" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/php-parallel-lint/php-console-highlighter" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/composer" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/php-parallel-lint/php-console-color" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/yoast/phpunit-polyfills" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/doctrine/deprecations" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/type" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phpunit/php-invoker" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/cli-parser" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/code-unit" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/complexity" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/object-reflector" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/dealerdirect/phpcodesniffer-composer-installer" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/nikic/php-parser" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phpcompatibility/php-compatibility" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phar-io/version" />
+      <path value="$PROJECT_DIR$/PHPMailer/vendor/phar-io/manifest" />
+    </include_path>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.4" />
   <component name="PhpStan">
     <PhpStan_settings>
       <phpstan_by_interpreter asDefaultInterpreter="true" interpreter_id="9a11a3c0-c738-44f6-8f97-23f3dbe559e8" timeout="60000" />
@@ -22,6 +68,11 @@
   </component>
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings custom_loader_path="$PROJECT_DIR$/PHPMailer/vendor/autoload.php" />
+    </phpunit_settings>
   </component>
   <component name="Psalm">
     <Psalm_settings>

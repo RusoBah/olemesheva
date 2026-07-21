@@ -12483,3 +12483,40 @@ p.checkout-coupon input[type=text]:focus {
 }
 
 /*# sourceMappingURL=main.css.map */
+/* Feedback form privacy and accessibility helpers. */
+.feedback-form__honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.feedback-form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+
+.feedback-form__consent input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  flex: 0 0 auto;
+}
+
+.feedback-form__consent label,
+#feedback-message-hint,
+.feedback-form__status {
+  color: #ffffff;
+}
+
+.feedback-form__status {
+  min-height: 1.5em;
+  margin-top: 12px;
+}
+
+.iti {
+  width: 100%;
+}
