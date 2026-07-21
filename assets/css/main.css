@@ -4786,7 +4786,7 @@ PAGINATION CSS START
   }
 }
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  p,  {
+  p {
     font-size: 16px;
   }
 }
@@ -4813,7 +4813,7 @@ PAGINATION CSS START
   }
 }
 
-slider-title-1 {  
+.slider-title-1 {
   font-size: 36px;
 }
 
@@ -7929,7 +7929,7 @@ slider-title-1 {
   content: "";
   height: 144px;
   width: 144px;
-  background: va;
+  background: var(--clr-common-white);
   border: 1px dashed var(--clr-common-white);
   border-radius: 50%;
   -webkit-animation-name: rotateCircle;
@@ -12509,9 +12509,11 @@ p.checkout-coupon input[type=text]:focus {
 .feedback-form__consent label,
 #feedback-message-hint,
 .feedback-form__status {
-  color: #ffffff;
+  color: #000000;
 }
-
+.feedback-form-policy__href {
+  color: rgba(3, 175, 229, 1);
+}
 .feedback-form__status {
   min-height: 1.5em;
   margin-top: 12px;

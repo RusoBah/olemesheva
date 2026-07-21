@@ -17,8 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
     phoneControl = window.intlTelInput(phoneInput, {
       initialCountry: "ru",
       onlyCountries: ["ru"],
+      allowDropdown: false,
       nationalMode: false,
       strictMode: true,
+      separateDialCode: true,
+      formatAsYouType: true,
+      loadUtils: function () {
+        return import("https://cdn.jsdelivr.net/npm/intl-tel-input@26.8.1/build/js/utils.js");
+      },
     });
   }
 
@@ -37,21 +43,21 @@ document.addEventListener("DOMContentLoaded", function () {
           "X-Requested-With": "XMLHttpRequest",
         },
       })
-        .then(async function (response) {
-          const data = await response.json().catch(function () {
-            return null;
+          .then(async function (response) {
+            const data = await response.json().catch(function () {
+              return null;
+            });
+
+            if (!response.ok || !data || data.status !== "success" || !data.csrfToken) {
+              throw new Error("Не удалось подготовить форму. Обновите страницу.");
+            }
+
+            csrfInput.value = data.csrfToken;
+            return data.csrfToken;
+          })
+          .finally(function () {
+            csrfRequest = null;
           });
-
-          if (!response.ok || !data || data.status !== "success" || !data.csrfToken) {
-            throw new Error("Не удалось подготовить форму. Обновите страницу.");
-          }
-
-          csrfInput.value = data.csrfToken;
-          return data.csrfToken;
-        })
-        .finally(function () {
-          csrfRequest = null;
-        });
     }
 
     return csrfRequest;
@@ -60,31 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
   ensureCsrfToken().catch(function (error) {
     status.textContent = error.message;
   });
-
-  function formatRussianPhone() {
-    let digits = phoneInput.value.replace(/\D/g, "");
-
-    if (digits.startsWith("7") || digits.startsWith("8")) {
-      digits = digits.slice(1);
-    }
-    digits = digits.slice(0, 10);
-
-    let formatted = "+7";
-    if (digits.length > 0) formatted += " (" + digits.slice(0, 3);
-    if (digits.length >= 3) formatted += ") " + digits.slice(3, 6);
-    if (digits.length >= 6) formatted += "-" + digits.slice(6, 8);
-    if (digits.length >= 8) formatted += "-" + digits.slice(8, 10);
-    phoneInput.value = formatted;
-  }
-
-  if (phoneInput) {
-    phoneInput.addEventListener("focus", function () {
-      if (phoneInput.value.trim() === "") {
-        phoneInput.value = "+7";
-      }
-    });
-    phoneInput.addEventListener("input", formatRussianPhone);
-  }
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
