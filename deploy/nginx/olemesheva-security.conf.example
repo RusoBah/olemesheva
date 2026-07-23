@@ -1,0 +1,22 @@
+# Подключить внутри существующего блока server для olemesheva.ru.
+index index.html;
+
+location = /index.html {
+    if ($request_uri = /index.html) {
+        return 301 https://olemesheva.ru/;
+    }
+
+    try_files /index.html =404;
+}
+
+location = /error.html {
+    return 410;
+}
+
+error_page 404 /404.php;
+
+add_header X-Content-Type-Options "nosniff" always;
+add_header X-Frame-Options "SAMEORIGIN" always;
+add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://api-maps.yandex.ru https://yastatic.net https://mc.yandex.ru https://mc.yandex.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.maps.yandex.net https://yastatic.net https://mc.yandex.ru https://mc.yandex.com; font-src 'self' data:; connect-src 'self' https://api-maps.yandex.ru https://*.maps.yandex.net https://mc.yandex.ru https://mc.yandex.com wss://mc.yandex.ru; child-src blob: https://mc.yandex.ru; frame-src blob: https://yandex.ru https://*.yandex.ru https://mc.yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests" always;
