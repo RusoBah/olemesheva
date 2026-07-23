@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       separateDialCode: true,
       formatAsYouType: true,
       loadUtils: function () {
-        return import("https://cdn.jsdelivr.net/npm/intl-tel-input@26.8.1/build/js/utils.js");
+        return import("/assets/vendor/intl-tel-input/js/utils.js");
       },
     });
   }

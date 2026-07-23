@@ -6,13 +6,12 @@ use PHPMailer\PHPMailer\Exception;
 require __DIR__ . "/PHPMailer/src/Exception.php";
 require __DIR__ . "/PHPMailer/src/PHPMailer.php";
 require __DIR__ . "/PHPMailer/src/SMTP.php";
+require_once __DIR__ . "/session-bootstrap.php";
 
 header("Content-Type: application/json; charset=utf-8");
 header("Cache-Control: no-store");
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
-    session_start();
-}
+startSiteSession();
 
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     http_response_code(405);
@@ -59,13 +58,16 @@ $email = trim((string) ($_POST["email"] ?? ""));
 $heading = trim((string) ($_POST["heading"] ?? ""));
 $message = trim((string) ($_POST["message"] ?? ""));
 $privacyConsent = (string) ($_POST["privacy_consent"] ?? "");
+$privacyConsentVersion = (string) ($_POST["privacy_consent_version"] ?? "");
+$expectedConsentVersion = "2026-07-23-v1";
+$consentReceivedAt = gmdate(DATE_ATOM);
 $textLength = static function (string $value): int {
     return function_exists("mb_strlen") ? mb_strlen($value, "UTF-8") : strlen($value);
 };
 
-if ($privacyConsent !== "1") {
+if ($privacyConsent !== "1" || !hash_equals($expectedConsentVersion, $privacyConsentVersion)) {
     http_response_code(400);
-    echo json_encode(["status" => "error", "message" => "Подтвердите согласие на обработку персональных данных"], JSON_UNESCAPED_UNICODE);
+    echo json_encode(["status" => "error", "message" => "Подтвердите актуальное согласие на обработку персональных данных"], JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -167,6 +169,8 @@ try {
 	if (!empty($message)) {
         $body .= "<p><strong>Сообщение:</strong><br>" . nl2br(htmlspecialchars($message, ENT_QUOTES, "UTF-8")) . "</p>";
     }
+    $body .= "<p><strong>Согласие:</strong> версия " . htmlspecialchars($privacyConsentVersion, ENT_QUOTES, "UTF-8")
+        . ", получено " . htmlspecialchars($consentReceivedAt, ENT_QUOTES, "UTF-8") . "</p>";
 
     $mail->Body = $body;
 
@@ -176,6 +180,7 @@ try {
     if (!empty($email)) $textBody .= "Почта: {$email}\n";
     if (!empty($heading)) $textBody .= "Название статьи: {$heading}\n";
 	if (!empty($message)) $textBody .= "Сообщение: {$message}\n";
+    $textBody .= "Согласие: версия {$privacyConsentVersion}, получено {$consentReceivedAt}\n";
     
     $mail->AltBody = $textBody;
     
