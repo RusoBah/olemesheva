@@ -1,2 +1,11 @@
 
 /PHPMailer/
+
+# Local tools and IDE settings
+/.claude/
+/.playwright-cli/
+/.idea/vcs.xml
+
+# Local reference photos and screenshots
+/photo_*.jpg
+/Скриншот-*.png
