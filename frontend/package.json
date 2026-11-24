@@ -1,0 +1,17 @@
+﻿{
+  "name": "olemesheva-frontend",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "php -S 127.0.0.1:8080 -t dist scripts/router.php"
+  },
+  "dependencies": {
+    "vue": "3.5.43"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.9",
+    "vite": "8.3.4",
+    "typescript": "6.0.3"
+  }
+}

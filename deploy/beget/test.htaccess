@@ -1,8 +1,10 @@
 DirectoryIndex index.html
-ErrorDocument 404 /404.php
+ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    RewriteRule ^privacy-policy\.php$ /privacy-policy.html [R=301,L]
+    RewriteRule ^personal-data-consent\.php$ /personal-data-consent.html [R=301,L]
     RewriteCond %{THE_REQUEST} \s/+news/index\.html[?\s] [NC]
     RewriteRule ^news/index\.html$ /news/ [R=301,L]
 </IfModule>

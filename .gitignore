@@ -9,3 +9,4 @@
 # Local reference photos and screenshots
 /photo_*.jpg
 /Скриншот-*.png
+/.playwright-mcp/

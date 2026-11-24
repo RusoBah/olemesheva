@@ -4,39 +4,18 @@
 
 Тестовый аккаунт Beget создан с нуля, поэтому в публичный каталог сайта `public_html` необходимо загрузить полный рабочий комплект.
 
-### Загрузить
+### Собрать и загрузить
 
-- `index.html`;
-- `404.php`;
-- `cookie.php`;
-- `privacy-policy.php`;
-- `personal-data-consent.php`;
-- `send.php`;
-- `csrf.php`;
-- `session-bootstrap.php`;
-- `robots.txt`;
-- `sitemap.xml`;
-- всю папку `assets/`, кроме необязательных исходников из `assets/scss/`;
-- всю папку `PHPMailer/`.
+Из корня проекта выполните:
 
-Структуру каталогов нужно сохранить. Например, файл `assets/js/mail.js` на сервере должен находиться по этому же относительному пути.
+```sh
+npm --prefix frontend ci
+npm --prefix frontend run build
+```
 
-### Не загружать
+Загрузите содержимое `frontend/dist/` в `public_html`, сохраняя структуру каталогов и скрытый файл `.htaccess`. В комплект входят `index.html`, `news/publications.html`, `privacy-policy.html`, `personal-data-consent.html`, `404.html`, каталог `assets/`, `send.php`, `csrf.php`, `session-bootstrap.php`, `robots.txt` и `sitemap.xml`. Библиотеку `PHPMailer/` установите отдельно рядом с `send.php`. Исходники и `node_modules/` передавать на сервер не требуется.
 
-- `.idea/`;
-- `PROJECT_AUDIT.md`;
-- `PROJECT_AUDIT_RESULT.md`;
-- `DEPLOYMENT.md`;
-- папку `deploy/`;
-- `mail-error.log`;
-- `assets/scss/`, если SCSS не планируется собирать на сервере;
-- PSD и другие исходники, которые не используются страницей.
-
-### CSS
-
-Страница напрямую подключает готовый файл `assets/css/main.css`. Все внесённые стили уже находятся в нём, поэтому Sass на хостинге собирать не требуется.
-
-Файлы `assets/scss/` являются исходниками и не участвуют в отображении сайта. Файл `main.css.map` также не обязателен для работы сайта.
+Для локальной проверки после сборки запустите `npm --prefix frontend run preview` и откройте http://127.0.0.1:8080/. Для проверки реальной доставки писем потребуются PHPMailer и рабочая конфигурация SMTP.
 
 ### Настройка тестового сайта
 
@@ -59,11 +38,11 @@
 5. Некорректные данные и отправка без согласия отклоняются.
 6. После успешной отправки форма может быть отправлена повторно с новым токеном.
 7. Письмо фактически приходит нужному получателю.
-8. Открывается `privacy-policy.php`.
-9. Открывается `personal-data-consent.php`.
+8. Открывается `privacy-policy.html`.
+9. Открывается `personal-data-consent.html`.
 10. До выбора пользователя отсутствуют запросы к Метрике, Яндекс.Картам и jsDelivr.
 11. Работают отказ, выборочные настройки, принятие всех и повторное открытие настроек cookie.
-12. Несуществующий адрес возвращает страницу `404.php` и HTTP-статус 404.
+12. Несуществующий адрес возвращает страницу `404.html` и HTTP-статус 404.
 13. На мобильном экране корректно отображаются форма, поле телефона и cookie-баннер.
 
 ## 3. Перенос на рабочий MChost
@@ -72,25 +51,7 @@
 
 Для обычного виртуального хостинга MChost публичный каталог обычно называется `httpdocs`. Точный путь следует проверить в панели управления текущей услугой.
 
-После успешной проверки на Beget перенести на MChost:
-
-- `index.html`;
-- `404.php`;
-- `cookie.php`;
-- `privacy-policy.php`;
-- `personal-data-consent.php`;
-- `send.php`;
-- `csrf.php`;
-- `session-bootstrap.php`;
-- `robots.txt`;
-- `sitemap.xml`;
-- `assets/js/mail.js`;
-- `assets/js/cookie-consent.js`;
-- `assets/css/main.css`;
-- `assets/vendor/intl-tel-input/`;
-- `assets/fonts/sora-latin.woff2` и `assets/fonts/sora-latin-ext.woff2`.
-
-Если на рабочем сервере нет используемых изображений, шрифтов, JavaScript-библиотек или папки `PHPMailer/`, их также нужно перенести из полного комплекта проекта.
+После успешной проверки на Beget загрузите содержимое `frontend/dist/` в публичный каталог MChost. Убедитесь, что на сервере установлена `PHPMailer/` рядом с `send.php`.
 
 На сервере следует удалить устаревшие `index.php` и `error.html`, если они были загружены ранее. Перед удалением необходимо убедиться, что это именно файлы данного сайта и они больше не используются.
 
@@ -107,8 +68,8 @@
 После обновления MChost проверить:
 
 - `https://olemesheva.ru/`;
-- `https://olemesheva.ru/privacy-policy.php`;
-- `https://olemesheva.ru/personal-data-consent.php`;
+- `https://olemesheva.ru/privacy-policy.html`;
+- `https://olemesheva.ru/personal-data-consent.html`;
 - `https://olemesheva.ru/robots.txt`;
 - `https://olemesheva.ru/sitemap.xml`;
 - редирект с `/index.html` на `/`, если он настроен;

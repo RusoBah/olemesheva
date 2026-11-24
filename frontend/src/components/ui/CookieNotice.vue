@@ -1,3 +1,4 @@
+<template>
 <div class="cookie-notice js-cookie-notice"
      hidden
      role="dialog"
@@ -11,7 +12,7 @@
             Сайт использует необходимую cookie для защиты формы, а с вашего разрешения —
             Яндекс.Карты и Яндекс.Метрику. Необязательные сервисы можно разрешить или
             отключить отдельно. Подробнее — в
-            <a href="/privacy-policy.php" target="_blank" rel="noopener">политике обработки персональных данных</a>.
+            <a href="/privacy-policy.html" target="_blank" rel="noopener">политике обработки персональных данных</a>.
         </p>
     </div>
 
@@ -66,3 +67,4 @@
         </button>
     </div>
 </div>
+</template>

@@ -1,0 +1,33 @@
+.publications-banner {
+   padding-top: 220px;
+   padding-bottom: 140px;
+}
+
+.publication-meta {
+   margin-bottom: 14px;
+   color: #f2773d;
+   font-size: 14px;
+   font-weight: 600;
+   line-height: 1.5;
+   letter-spacing: .02em;
+}
+
+.publication-card {
+   width: 100%;
+   height: 100%;
+   cursor: pointer;
+}
+
+@media (max-width: 1199px) {
+   .publications-banner {
+      padding-top: 180px;
+      padding-bottom: 110px;
+   }
+}
+
+@media (max-width: 767px) {
+   .publications-banner {
+      padding-top: 145px;
+      padding-bottom: 80px;
+   }
+}

@@ -284,36 +284,11 @@
       return noticeReady;
     }
 
-    noticeReady = fetch("/cookie.php", {
-      credentials: "same-origin",
-      cache: "no-store",
-      headers: {
-        Accept: "text/html",
-      },
-    })
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("Cookie notice request failed");
-        }
-        return response.text();
-      })
-      .then(function (markup) {
-        const root = document.getElementById("cookie-notice-root") || document.body;
-        const wrapper = document.createElement("div");
-        wrapper.innerHTML = markup.trim();
-        notice = wrapper.firstElementChild;
-        if (!notice) {
-          throw new Error("Cookie notice markup is empty");
-        }
-        root.appendChild(notice);
-        bindNotice();
-        return notice;
-      })
-      .catch(function () {
-        // Fail closed: analytics and maps remain blocked if the notice cannot be loaded.
-        return null;
-      });
-
+    notice = document.querySelector("#cookie-notice-root .js-cookie-notice");
+    if (notice) {
+      bindNotice();
+    }
+    noticeReady = Promise.resolve(notice);
     return noticeReady;
   }
 

@@ -13,7 +13,10 @@ location = /error.html {
     return 410;
 }
 
-error_page 404 /404.php;
+location = /privacy-policy.php { return 301 /privacy-policy.html; }
+location = /personal-data-consent.php { return 301 /personal-data-consent.html; }
+
+error_page 404 /404.html;
 
 add_header X-Content-Type-Options "nosniff" always;
 add_header X-Frame-Options "SAMEORIGIN" always;
